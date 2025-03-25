@@ -1,0 +1,31 @@
+SSH
+
+Előfeltételek:
+   - Hosztnév    -> hostname SW1
+   - Domain név  -> ip domain-name bethlenszki.hu
+   - felhasználó-jeszó -> username felhasználónév password/secret jelszó
+
+titkosítási kulcs
+   - crypto key generate rsa 1024 (kulcs hossza) 
+
+ssh kommunikáció
+    - csatorna megadása:         line vty 0 4
+    - felhasználónév használata: 	login local
+    - elérés típusa:             	transport input none/telnet/ssh/all
+
+Egyéb nyalánkságok:
+    Router(config)#ip ssh time-out 60    //60s után "kidob"
+    tiltás
+    login block-for 100 attempts 2 within 50
+
+Titkos kulcs törlése:
+     crypto key zeroize rsa
+kulcs megtekintése
+     show crypto key mypubkey rsa
+
+
+domain név: balato.co
+host      : Bla1
+ssh hossz : 1024
+felhasználó:  Admin / Jelszo
+g0/1     : 155.166.177.123/27
